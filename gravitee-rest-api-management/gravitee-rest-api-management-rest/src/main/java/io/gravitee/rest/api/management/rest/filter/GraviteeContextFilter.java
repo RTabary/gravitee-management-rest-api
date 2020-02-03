@@ -33,7 +33,7 @@ import io.gravitee.rest.api.service.common.GraviteeContext;
  * @author GraviteeSource Team
  */
 @Provider
-@Priority(200)
+@Priority(0)
 public class GraviteeContextFilter implements ContainerRequestFilter {
 
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -42,6 +42,7 @@ public class GraviteeContextFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestContext) throws IOException {
         MultivaluedMap<String, String> pathsParams = requestContext.getUriInfo().getPathParameters();
         GraviteeContext.setCurrentEnvironment(pathsParams.getFirst("envId"));
+        GraviteeContext.setCurrentOrganization(pathsParams.getFirst("orgId"));
     }
 
 }

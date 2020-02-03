@@ -98,7 +98,7 @@ public class GraviteeManagementApplication extends ResourceConfig {
             }
         });
         //Main resource
-        register(EnvironmentResource.class);
+        register(OrganizationsResource.class);
         
         register(MultiPartFeature.class);
         
